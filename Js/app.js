@@ -27,10 +27,10 @@ const adduser = (ev) => {
                 }
                 else {
                     users.push(new User(name, email, password));
-
-                    localStorage.setItem("login", "");
+                     localStorage.setItem("login", "");
                     //saving to localStorage
                     localStorage.setItem('UsersData', JSON.stringify(users));
+                    alert("Your Account Successfully Created")
                     break;
                 }
             }
@@ -40,7 +40,7 @@ const adduser = (ev) => {
             localStorage.setItem("login", "");
             //saving to localStorage
             localStorage.setItem('UsersData', JSON.stringify(users));
-            console.log(name, email, password)
+            alert("Your Account Successfully Created")
         }
     }
 }
