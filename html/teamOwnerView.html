@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../Js/app.js"></script>
+</head>
+<body onload="teamOv() , answerReport()">
+    <script>
+
+
+var divs = ["Div1", "Div2"];
+var visibleDivId = null;
+function divVisibility(divId) {
+    if (visibleDivId === divId) {
+        visibleDivId = null;
+    } else {
+        visibleDivId = divId;
+    }
+    hideNonVisibleDivs();
+}
+function hideNonVisibleDivs() {
+    var i, divId, div;
+    for (i = 0; i < divs.length; i++) {
+        divId = divs[i];
+        div = document.getElementById(divId);
+        if (visibleDivId === divId) {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
+    }
+}
+    </script>
+    
+    <div class="main_div">
+        <button onclick="divVisibility('Div1');">Reports</button>
+
+        <button onclick="divVisibility('Div2');">Settings</button>
+    </div>
+
+
+
+    <div class="inner_div">
+        <div id="Div1" >
+            <h1 >Members Report</h1>
+            <select name="" id="mySelect">
+                <option value="">All Members</option>
+            </select>
+
+        </div>
+
+
+        <div id="Div2" style="display: none;">
+            <h1>Team Setting</h1> <br>
+            <label for="">Question</label> <br>
+            <input type="text" id="Q1"> <br>
+            <input type="text" id="Q2"> <br>
+            <input type="text" id="Q3"> <br>
+
+            <label for="">Reminder:</label> <br>
+            <label for="">Members</label>   <br>
+            <input type="text" placeholder="Add members"> <br>
+            <button>Add</button> <br>
+            <button onclick="saveChanges()">Save Change</button>
+            <button>Cancle</button>
+            <button onclick="delteTeam()">Delete Team</button>
+        </div>
+    </div>
+</body>
+</html>
